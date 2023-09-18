@@ -16,10 +16,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Python dotenv for environment variables to keep sensitive data safe
-from dotenv import load_dontenv
+from dotenv import load_dotenv
 import os
 
-load_dontenv()
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
