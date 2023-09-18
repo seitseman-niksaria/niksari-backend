@@ -15,12 +15,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Python dotenv for environment variables to keep sensitive data safe
+from dotenv import load_dontenv
+import os
+
+load_dontenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--=kr)$^1!i_$#%txb+i-4+f%1=a=#a%@$j$1(wn9_n8&)h!6xd'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -70,13 +75,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-# Database
+# PostgreSQL Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get('DB_NAME'),
+        "USER": os.environ.get('DB_USER'),
+        "PASSWORD": os.environ.get('DB_PASSWORD'),
+        "HOST": os.environ.get('DB_HOST'),
+        "PORT": os.environ.get('DB_PORT'),
     }
 }
 
