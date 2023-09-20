@@ -1,34 +1,13 @@
 from django.db import models
 
 
-# class Furniture(models.Model):
-#     category = models.ForeignKey()
-
-
-
+# Create your models here.
 class Category(models.Model):
     category_name = models.CharField(max_length=50)
 
-#class Type(models.Model):
-#    type_name = models.CharField(max_length=50)
-#    model = models.ForeignKey()
-#    indoor = models.BooleanField(default=True)
 
-# class Type(models.Model):
-#     type_name = models.CharField(max_length=50)
-#     model = models.ForeignKey()
-#     indoor = models.BooleanField(default=True)
-
-
-class Model(models.Model):
+class FurnitureModel(models.Model):
     name = models.CharField(max_length=50)
     material = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
-    category_id = models.ForeignKey("")
-    material_id = models.ForeignKey()
-
-class MaterialOfModel(models.Model):()
-
-class Material(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
