@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Details of model</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    {% comment %} Make dedicated CSS file for page styles {% endcomment %}
+    <style>
+      .myDiv {
+        margin: auto;
+        width: 50%;
+        background-color: #F5F5F5;
+        padding: 10px;
+      }
+    </style>
+    <div class="myDiv">
+      <h3>{{furniture_model.furniture_name}}</h3>
+      <h5>Category: {{furniture_model.category}}</h5>
+      {% comment %} Need to show all avaible materials, 
+      surface finishes and upholsteries for specific model??
+      Fix syntax. {% endcomment %}
+      <h6>Material: {{furniture_model.material}}</br>
+          Surface finish: {{furniture_model.surface_finish}}</br>
+          Upholstery: {{furniture_model.upholstery}}
+      </h6>
+      <p>{{furniture_model.furniture_description}}</p>
+      <script src="" async defer></script>
+    </div>
+  </body>
+</html>

@@ -9,14 +9,20 @@ class Category(models.Model):
 
 class Upholstery(models.Model):
     upholstery_name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.upholstery_name
 
 
 class Material(models.Model):
     material_name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.material_name
 
 
 class SurfaceFinish(models.Model):
     surface_finish_name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.surface_finish_name
 
 
 class FurnitureModel(models.Model):
@@ -25,7 +31,9 @@ class FurnitureModel(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     surface_finish = models.ForeignKey(SurfaceFinish, on_delete=models.CASCADE)
-    upholstery = models.ForeignKey(Upholstery, on_delete=models.CASCADE)
+    upholstery = models.ForeignKey(Upholstery, on_delete=models.CASCADE, default="No upholstery")
+    def __str__(self):
+        return self.furniture_name
 
 
 class Instruction(models.Model):
@@ -33,3 +41,5 @@ class Instruction(models.Model):
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     surface_finish = models.ForeignKey(SurfaceFinish, on_delete=models.CASCADE)
     upholstery = models.ForeignKey(Upholstery, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.instruction_id
