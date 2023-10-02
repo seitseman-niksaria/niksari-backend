@@ -1,10 +1,12 @@
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework import routers
 from . import views
 
+
+router = routers.DefaultRouter()
+router.register(r'furniture-models', views.FurnitureModelViewSet)
+
 urlpatterns = [
-    # ex: /niksari/
-    path("", views.index, name="index"),
-    # ex: /niksari/1/
-    path("<int:furniture_model_id>/", views.furniture_detail, name="furniture_detail"),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
