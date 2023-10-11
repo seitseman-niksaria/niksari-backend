@@ -5,6 +5,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'furniture-models', views.FurnitureModelViewSet)
+router.register(r'instructions', views.InstructionViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
