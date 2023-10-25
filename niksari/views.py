@@ -1,8 +1,15 @@
+import statistics
+from requests import Response
 from .models import FurnitureModel, Instruction
 from rest_framework import viewsets
-from niksari.serializers import FurnitureModelSerializer, InstructionSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
+from niksari.serializers import FurnitureModelSerializer, InstructionSerializer, PictureSerializer
 from . import prediction
 from django.shortcuts import render
+from django import forms
+
 
 def index(request):
     return render(request, "niksari/index.html")
@@ -16,9 +23,18 @@ class InstructionViewSet(viewsets.ModelViewSet):
     queryset = Instruction.objects.all()
     serializer_class = InstructionSerializer
 
-# Predict image using prediction.py
-def predict_from_upload(request):
-    users_image = request.FILES["image"]
-    response = prediction.predict_image(users_image)
-    predicted_result = {"class_name": response}
-    return render(request, "niksari/index.html", predicted_result)
+
+# RestAPI for picture recognition
+class PictureRecognition(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, *args, **kwargs):
+        serializer = PictureSerializer(data=request.data) #Create an instance of PictureSerializer with the request data
+        if serializer.is_valid(): #Check if the picture is valid
+            picture = serializer.validated_data["picture"]
+            response = prediction.predict_image(picture) #Calling predict_image function in prediction.py
+            return Response(response)
+        else:
+            print("ERROR:")
+            print(serializer.errors)
+

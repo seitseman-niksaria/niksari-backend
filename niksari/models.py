@@ -41,4 +41,3 @@ class Instruction(models.Model):
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     surface_finish = models.ForeignKey(SurfaceFinish, on_delete=models.CASCADE)
     upholstery = models.ForeignKey(Upholstery, on_delete=models.CASCADE)
-
