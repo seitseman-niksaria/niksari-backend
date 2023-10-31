@@ -5,6 +5,8 @@
 *.log
 *.pot
 *.pyc
+backend/__pycache__
+niksari/__pycache__
 __pycache__/
 local_settings.py
 db.sqlite3
