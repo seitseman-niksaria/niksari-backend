@@ -2,42 +2,36 @@ from django.db import models
 
 
 class Category(models.Model):
-    category_name = models.CharField(max_length=50)
+    category_name = models.CharField(max_length=30)
+
     def __str__(self):
         return self.category_name
 
 
-class Upholstery(models.Model):
-    upholstery_name = models.CharField(max_length=50)
+class Instruction(models.Model):
+    instruction_name = models.CharField(default='instruction', max_length=30)
+    instruction_text = models.TextField()
+
     def __str__(self):
-        return self.upholstery_name
-
-
-class Material(models.Model):
-    material_name = models.CharField(max_length=50)
-    def __str__(self):
-        return self.material_name
-
-
-class SurfaceFinish(models.Model):
-    surface_finish_name = models.CharField(max_length=50)
-    def __str__(self):
-        return self.surface_finish_name
+        return self.instruction_name
 
 
 class FurnitureModel(models.Model):
-    furniture_name = models.CharField(max_length=50)
+    furniture_name = models.CharField(max_length=30)
     furniture_description = models.TextField()
+    outdoor = models.BooleanField(default=False)
+    leather = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    material = models.ForeignKey(Material, on_delete=models.CASCADE)
-    surface_finish = models.ForeignKey(SurfaceFinish, on_delete=models.CASCADE)
-    upholstery = models.ForeignKey(Upholstery, on_delete=models.CASCADE, default="No upholstery")
+    instructions = models.ManyToManyField(Instruction)
+
     def __str__(self):
         return self.furniture_name
 
 
-class Instruction(models.Model):
-    instruction_text = models.TextField()
-    material = models.ForeignKey(Material, on_delete=models.CASCADE)
-    surface_finish = models.ForeignKey(SurfaceFinish, on_delete=models.CASCADE)
-    upholstery = models.ForeignKey(Upholstery, on_delete=models.CASCADE)
+class FurnitureImage(models.Model):
+    model_image = models.ImageField()
+    image_model_name = models.CharField(max_length=30)
+    furniture_model = models.ForeignKey(FurnitureModel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image_model_name

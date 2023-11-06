@@ -7,13 +7,13 @@ from drf_extra_fields.fields import Base64ImageField
 class FurnitureModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = FurnitureModel
-        fields = ['furniture_name', 'furniture_description',
-                  'category', 'material', 'surface_finish', 'upholstery']
+        fields = ['furniture_name', 'furniture_description','outdoor','leather'
+                  'category']
         
 class InstructionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Instruction
-        fields = ['instruction_text', 'material', 'surface_finish', 'upholstery']
+        fields = ['instruction_name','instruction_text']
 
 
 class PictureSerializer(serializers.Serializer):
