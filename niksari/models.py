@@ -9,7 +9,7 @@ class Category(models.Model):
 
 
 class Instruction(models.Model):
-    instruction_name = models.CharField(default='instruction', max_length=30)
+    instruction_name = models.CharField(default='instruction', max_length=50)
     instruction_text = models.TextField()
 
     def __str__(self):
@@ -30,7 +30,7 @@ class FurnitureModel(models.Model):
 
 class FurnitureImage(models.Model):
     model_image = models.ImageField()
-    image_model_name = models.CharField(max_length=30)
+    image_name = models.CharField(max_length=50)
     furniture_model = models.ForeignKey(FurnitureModel, on_delete=models.CASCADE)
 
     def __str__(self):
