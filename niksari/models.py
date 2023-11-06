@@ -29,9 +29,9 @@ class FurnitureModel(models.Model):
 
 
 class FurnitureImage(models.Model):
-    model_image = models.ImageField()
+    model_image = models.ImageField(upload_to='niksari/furnitureimages', default='furniture/default.png')
     image_name = models.CharField(max_length=50)
     furniture_model = models.ForeignKey(FurnitureModel, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.image_model_name
+        return self.image_name
