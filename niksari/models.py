@@ -13,10 +13,8 @@ class Instruction(models.Model):
     instruction_text = models.TextField()
 
     def __str__(self):
-        return {
-            self.id,
-            self.instruction_name
-        }
+        return f"{self.id} {self.instruction_name}"
+        
 
 
 class FurnitureModel(models.Model):
