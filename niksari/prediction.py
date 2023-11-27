@@ -3,7 +3,7 @@ from teachable_machine import TeachableMachine
 import numpy as np
 from .models import FurnitureModel
 
-teachable_model = TeachableMachine(model_path="teachable_machine\keras_model.h5", labels_file_path="teachable_machine\labels.txt")
+teachable_model = TeachableMachine(model_path="teachable_machine/keras_model.h5", labels_file_path="teachable_machine/labels.txt")
 
 # predicting user image using teachable machine library
 def predict_image(user_image):
