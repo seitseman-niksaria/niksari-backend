@@ -83,8 +83,9 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # PostgreSQL Database URL
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL_POSTGRE"))
+    'default': dj_database_url.config(),
 }
 
 
