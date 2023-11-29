@@ -89,9 +89,3 @@ You can access furniture models list at
 ```
 http://127.0.0.1:8000/furniture-models/
 ```
-
-This project is also published in Render:
-
-```
-https://niksari-backend.onrender.com/furniture-models/
-```
