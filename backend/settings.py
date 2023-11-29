@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.0.2.2','127.0.0.1', 'niksari-backend.onrender.com', '192.168.1' ]
+ALLOWED_HOSTS = ['10.0.2.2','127.0.0.1', 'niksari-backend.onrender.com' ]
 
 # Application definition
 
@@ -79,6 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 26214400
 
 # PostgreSQL Database URL
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
