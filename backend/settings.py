@@ -79,6 +79,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
+# Increasing the size of the file limit
+# https://docs.djangoproject.com/en/4.2/ref/settings/#data-upload-max-memory-size
+
 DATA_UPLOAD_MAX_MEMORY_SIZE = 26214400
 
 # PostgreSQL Database URL
