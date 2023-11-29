@@ -11,5 +11,5 @@ router.register(r'instructions', views.InstructionViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path("predict_model/", views.PictureRecognition.as_view(), name="picture")
+    path("predict_model", views.PictureRecognition.as_view(), name="picture")
 ]
