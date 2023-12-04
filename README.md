@@ -126,10 +126,9 @@ Here are a few views of the app in usage: the chatbot screen, asking the chatbot
 
 Below you can see a camera screen view. User can take picture or choose image from phone gallery. When clicking "Send" for the first time, please be patient - it might take some time for the app to connect with the server!
 
-<img width="225" alt="pieni4" src="https://github.com/seitseman-niksaria/documentation/assets/50700099/d1126b24-c825-46ce-8ccb-1d000d2be7da">
+<img width="225" alt="pieni4" src="https://github.com/seitseman-niksaria/niksari-backend/assets/50700099/60b1653a-2432-4e39-84b3-2481d8192fc9">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- ROADMAP -->
 ## Roadmap
